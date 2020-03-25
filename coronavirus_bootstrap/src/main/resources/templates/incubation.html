@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Coronavirus Tracking Application</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+
+<link th:href="@{css/open-iconic-bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{css/animate.css}" rel="stylesheet">
+
+<link th:href="@{css/owl.carousel.min.css}" rel="stylesheet">
+<link th:href="@{css/owl.theme.default.min.css}" rel="stylesheet">
+<link th:href="@{css/magnific-popup.css}" rel="stylesheet">
+
+<link th:href="@{css/aos.css}" rel="stylesheet">
+
+<link th:href="@{css/ionicons.min.css}" rel="stylesheet">
+
+<link th:href="@{css/bootstrap-datepicker.css}" rel="stylesheet">
+<link th:href="@{css/jquery.timepicker.css}" rel="stylesheet">
+
+
+<link th:href="@{css/flaticon.css}" rel="stylesheet">
+<link th:href="@{css/icomoon.css}" rel="stylesheet">
+<link th:href="@{css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<nav
+		class="navbar py-4 navbar-expand-lg ftco_navbar navbar-light bg-light flex-row">
+		<div class="container">
+			<div
+				class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
+				<div class="col-lg-2 pr-4 align-items-center">
+					<a class="navbar-brand" href="index.html"><span>coronavirus</span></a>
+				</div>
+				<div class="col-lg-10 d-none d-md-block">
+					<div class="row d-flex">
+
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-paper-plane"></span>
+							</div>
+							<span class="text">Email: ncov2019@gov.in</span>
+						</div>
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-phone2"></span>
+							</div>
+							<span class="text">The Helpline Number: +91-11-23978046</span>
+						</div>
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-phone2"></span>
+							</div>
+							<span class="text">Toll Free No: 1075</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light"
+		id="ftco-navbar">
+		<div class="container d-flex align-items-center">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a href="index.html"
+						class="nav-link pl-0">Home</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+					<li class="nav-item"><a href="positive" class="nav-link">Positive</a></li>
+					<li class="nav-item"><a href="recover" class="nav-link">Recovered</a></li>
+					<li class="nav-item"><a href="death" class="nav-link">Death</a></li>
+					<li class="nav-item"><a href="helpline" class="nav-link">HelpLine
+							Numbers</a></li>
+							<li class="nav-item"><a href="symptoms" class="nav-link">Symptoms</a></li>
+	          <li class="nav-item"><a href="incubation" class="nav-link">IncubationPeriod</a></li>
+	            <li class="nav-item"><a href="deathrate" class="nav-link">Death Rate</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<div class="content-inner">
+			<style type="text/css">
+<!--
+.style1 {
+	font-size: 16px;
+	font-style: italic;
+}
+
+blockquote {
+	font-size: 15px;
+	background-color: #F8F8F8;
+	line-height: 1.5em;
+}
+
+.style2 {
+	font-size: 14px
+}
+-->
+</style>
+			<div class="label-counter">
+				<a href="/coronavirus/">COVID-19 Coronavirus</a> / Incubation
+			</div>
+			<div id="maincounter-wrap">
+				<h1>Coronavirus Incubation Period:</h1>
+				<div class="maincounter-number">
+					<span>2 - 14 days</span>
+				</div>
+				<div style="font-size: 22px">
+					Possible outliers: <span style="font-weight: bold">0 - <span
+						style="color: #FF0000">27 days</span></span>
+				</div>
+			</div>
+			<h4 id="incubation-estimates">Summary of findings:</h4>
+			<div class="spaced" style="padding-top: 20px">
+				<ul>
+					<li>2-14 days represents the current official estimated range
+						for the novel coronavirus COVID-19.</li>
+					<li>However, a case with an incubation period of <span
+						style="font-weight: bold">27 days </span>has been reported by
+						Hubei Province local government on Feb. 22 <sup>[<a
+							href="#ref-12">12</a>]
+					</sup></li>
+					<li>In addition, a case with an incubation period of <span
+						style="font-weight: bold">19 days </span>was observed in a JAMA
+						study of 5 cases published on Feb. 21. <sup>[<a
+							href="#ref-13">13</a>]
+					</sup></li>
+					<li>An outlier of a <strong><a href="#24">24 days</a>
+							incubation period</strong> had been for the first time observed in a Feb.
+						9 study.<sup>[<a href="#ref-11">11</a>]
+					</sup> <a
+						href="https://www.youtube.com/watch?v=a0Nu5MURFe4&amp;feature=youtu.be&amp;t=2166">WHO
+							said at the time that this could actually reflect a second
+							exposure</a> rather than a long incubation period, and that it wasn't
+						going to change its recommendations.
+					</li>
+					<li>Period can <strong>vary greatly </strong>among patients.
+					</li>
+					<li>Mean incubation period observed: <strong><a
+							href="#24"><br> 3.0 days</a></strong> (0 - 24 days range, study based
+						on 1,324 cases)<br> <strong><a href="#52">5.2
+								days</a> </strong>(4.1 - 7.0 days range, based on 425 cases).
+					</li>
+					<li>Mean incubation period observed in <strong>travelers
+							from Wuhan</strong>: <strong> <a href="#incubation-travelers"><br>
+								6.4 days</a></strong> (range from <strong>2.1 to 11.1 days).</strong></li>
+				</ul>
+			</div>
+			<h3>COVID-19 Incubation Period</h3>
+			<p>
+				The incubation period (<strong>time from exposure to the
+					development of symptom</strong>s) of the virus is estimated to be between 2
+				and 14 days based on the following sources:
+			</p>
+			<ul>
+				<li>The <strong>World Health Organization</strong> (WHO)
+					reported an incubation period for COVID-19 between <strong>2
+						and 10 days</strong>. <sup>[<a href="#ref-1">1</a>]
+				</sup></li>
+				<li>China’s <strong>National Health Commission (NHC)</strong>
+					had initially estimated an incubation period from<strong>
+						10 to 14 days</strong> <sup>[<a href="#ref-2">2</a>]
+				</sup>.
+				</li>
+				<li>The United States' <strong>CDC</strong> estimates the
+					incubation period for COVID-19 to be between <strong>2 and
+						14 days</strong> <sup>[<a href="#ref-3">3</a>]
+				</sup>.
+				</li>
+				<li>DXY.cn, a leading Chinese online community for physicians
+					and health care professionals, is reporting an <strong>incubation
+						period of "3 to 7 days, up to 14 days".</strong>
+				</li>
+			</ul>
+			<p>The estimated range will be most likely narrowed down as more
+				data becomes available.</p>
+			<h4 id="24">Incubation period of up to 24 days?</h4>
+			<p>
+				The incubation period has been found to be <strong>as long
+					as 24 days </strong>(range: <strong>0-24 days</strong>; median: <strong>3.0
+					days</strong>) in a study <strong>published on February 9</strong>. <sup>[<a
+					href="#ref-11">11</a>]
+				</sup> <a
+					href="https://www.youtube.com/watch?v=a0Nu5MURFe4&amp;feature=youtu.be&amp;t=2166"></a>
+			</p>
+			<p>
+				The <strong>WHO</strong> said in a <a
+					href="https://youtu.be/a0Nu5MURFe4?t=2166">press conference on
+					February 10</a> that:
+			</p>
+			<ul>
+				<li><strong>a very long incubation period could
+						reflect a double exposure.</strong></li>
+				<li>24 days represented an outlier observation that must be
+					taken into consideration in the context of the main finding of the
+					study.</li>
+				<li>WHO is <strong>not considering changing
+						recommendations regarding incubation periods</strong>.
+				</li>
+			</ul>
+			<p>
+				More recently, however, a case with an incubation period of 19 days
+				was observed in a JAMA study published on Feb. 21. <sup>[<a
+					href="#ref-13">13</a>]
+				</sup>, and another case with an incubation period of 27 days was reported
+				by Hubei Province on Feb. 22 <sup>[<a href="#ref-12">12</a>]
+				</sup>
+			</p>
+			<h4>Incubation period of 5.2 days on average</h4>
+			<p>
+				A Chinese study published in the New England Journal of Medicine on
+				Jan. 30<sup>[<a href="#ref-7">7</a>]
+				</sup>, has found the incubation period to be <strong>5.2 days on
+					average</strong>, but it varies greatly among patients. The Chinese team
+				conducting the study said their findings support a <strong>14-day
+					medical observation period </strong>for people exposed to the pathogen.
+			</p>
+			<p>Below is an extract of the study findings (highlight added by
+				Worldometer):</p>
+			<blockquote>
+				<p>Among the first 425 patients with confirmed NCIP, the median
+					age was 59 years and 56% were male. The majority of cases (55%)
+					with onset before January 1, 2020, were linked to the Huanan
+					Seafood Wholesale Market, as compared with 8.6% of the subsequent
+					cases.</p>
+				<p style="background-color: #FFFF00">
+					<strong>The mean incubation period was 5.2 days (95%
+						confidence interval [CI], 4.1 to 7.0), with the 95th percentile of
+						the distribution at 12.5 days. </strong>
+				</p>
+				<p>In its early stages, the epidemic doubled in size every 7.4
+					days. With a mean serial interval of 7.5 days (95% CI, 5.3 to 19),
+					the basic reproductive number was estimated to be 2.2 (95% CI, 1.4
+					to 3.9).</p>
+				<p>
+					Conclusions On the basis of this information, there is<strong>
+						evidence that human-to-human transmission has occurred among close
+						contacts</strong> since the middle of December 2019. Considerable efforts
+					to reduce transmission will be required to control outbreaks if
+					similar dynamics apply elsewhere. Measures to prevent or reduce
+					transmission should be implemented in populations at risk.
+				</p>
+			</blockquote>
+			<span class="style2"><a
+				href="https://www.nejm.org/doi/full/10.1056/NEJMoa2001316">Early
+					Transmission Dynamics in Wuhan, China, of Novel
+					Coronavirus–Infected Pneumonia</a> - Qun Li et al., </span>New England Journal
+			of Medicine, Jan. 29, 2020
+			<h3 id="incubation-travelers">Incubation Period in Travelers
+				from Wuhan</h3>
+			<p>
+				A study financed by the Netherlands Ministry of Health and published
+				on <em>Eurosurveillance</em>,<sup>[<a href="#ref-10">10</a>]
+				</sup> analyzed data on 88 cases with known travel history (to and) from
+				Wuhan which were detected between 20 and 28 January as being
+				infected with COVID-19.
+			</p>
+			<p>
+				The <strong>mean incubation period</strong> was estimated<strong>
+					to be 6.4 days</strong>. The incubation period ranges from <strong>2.1
+					to 11.1 days</strong>. The upper limit of 11.1 days could be considered
+				conservative.<sup>[<a href="#ref-10">10</a>]
+				</sup>
+			</p>
+			<h3>The importance of knowing the incubation period</h3>
+			<p>Understanding the incubation period is very important for
+				health authorities as it allows them to introduce more effective
+				quarantine systems for people suspected of carrying the virus, as a
+				way of controlling and hopefully preventing the spread of the virus.</p>
+			<h3>Comparison with other viruses</h3>
+			<p>For comparison, the incubation period for the common flu
+				(seasonal influenza) is typically around 2 days. Incubation period
+				for other coronaviruses: SARS 2-7 days; MERS 5 days typically (range
+				2-14 days).</p>
+			<div class="table-responsive" style="max-width: 400px">
+				<table width="347"
+					class="table table-hover table-bordered table-condensed table-list">
+					<thead>
+						<tr class="table table-striped table-bordered">
+							<th>Virus</th>
+							<th style="text-align: right">Incubation Period<br>
+								(typical cases)
+							</th>
+						</tr>
+						<tr class="table table-striped table-bordered">
+							<td align="left"><div align="left">
+									Novel Coronavirus <br>(COVID-19)
+								</div></td>
+							<td align="right">2-14 or 0-24 days <span class="style1">*</span>
+							</td>
+						</tr>
+						<tr class="table table-striped table-bordered">
+							<td align="left"><div align="left">SARS</div></td>
+							<td align="right"><a
+								href="https://www.who.int/csr/sars/clinical/en/">2-7 days</a>,<br>
+								as long as 10 days</td>
+						</tr>
+						<tr class="table table-striped table-bordered">
+							<td align="left"><div align="left">MERS</div></td>
+							<td align="right"><a
+								href="https://www.cdc.gov/coronavirus/mers/clinical-features.html">5
+									days</a> (range: 2-14)</td>
+						</tr>
+						<tr class="table table-striped table-bordered">
+							<td align="left"><div align="left">Swine Flu</div></td>
+							<td align="right"><a
+								href="https://www.ncbi.nlm.nih.gov/books/NBK513241/">1-4
+									days</a>,<br> as long as 7 days</td>
+						</tr>
+						<tr class="table table-striped table-bordered">
+							<td align="left"><div align="left">Seasonal Flu</div></td>
+							<td align="right">2 days (1-4 range)</td>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<footer class="ftco-footer ftco-bg-dark ftco-section">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					 <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+ </p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+	</div>
+
+
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/jquery-migrate-3.0.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{//js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+	<script th:src="@{/js/jquery.waypoints.min.js}"></script>
+	<script th:src="@{/js/jquery.stellar.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/aos.js}"></script>
+	<script th:src="@{/js/jquery.animateNumber.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.js}"></script>
+	<script th:src="@{/js/jquery.timepicker.min.js}"></script>
+	<script th:src="@{/js/scrollax.min.js}"></script>
+	<script th:src="@{/js/google-map.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Coronavirus Tracking Application</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+
+ <link  href="/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    
+    <link  href="/css/owl.carousel.min.css" rel="stylesheet">
+    <link  href=" /css/owl.theme.default.min.css " rel="stylesheet">
+    <link  href=" /css/magnific-popup.css " rel="stylesheet">
+
+    <link  href="/css/aos.css " rel="stylesheet">
+
+    <link  href=" /css/ionicons.min.css " rel="stylesheet">
+
+    <link  href="/css/bootstrap-datepicker.css " rel="stylesheet">
+    <link href="/css/jquery.timepicker.css " rel="stylesheet">
+
+    
+    <link href="/css/flaticon.css " rel="stylesheet">
+    <link  href="/css/icomoon.css " rel="stylesheet">
+    <link  href="/css/style.css " rel="stylesheet">
+    
+    <script src="/js/jquery.min.js "></script>
+  <script src="/js/bootstrap.min.js "></script>
+  <script src="/js/jquery-migrate-3.0.1.min.js "></script>
+</head>
+<body>
+	<nav
+		class="navbar py-4 navbar-expand-lg ftco_navbar navbar-light bg-light flex-row">
+		<div class="container">
+			<div
+				class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
+				<div class="col-lg-2 pr-4 align-items-center">
+					<a class="navbar-brand" href="index.html"><span>coronavirus</span></a>
+				</div>
+				<div class="col-lg-10 d-none d-md-block">
+					<div class="row d-flex">
+
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-paper-plane"></span>
+							</div>
+							<span class="text">Email: ncov2019@gov.in</span>
+						</div>
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-phone2"></span>
+							</div>
+							<span class="text">The Helpline Number: +91-11-23978046</span>
+						</div>
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-phone2"></span>
+							</div>
+							<span class="text">Toll Free No: 1075</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light"
+		id="ftco-navbar">
+		<div class="container d-flex align-items-center">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a href="index.html"
+						class="nav-link pl-0">Home</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+					<li class="nav-item"><a href="positive" class="nav-link">Positive</a></li>
+					<li class="nav-item"><a href="recover" class="nav-link">Recovered</a></li>
+					<li class="nav-item"><a href="death" class="nav-link">Death</a></li>
+					<li class="nav-item"><a href="helpline" class="nav-link">HelpLine
+							Numbers</a></li>
+							<li class="nav-item"><a href="symptoms" class="nav-link">Symptoms</a></li>
+	          <li class="nav-item"><a href="incubation" class="nav-link">IncubationPeriod</a></li>
+	            <li class="nav-item"><a href="deathrate" class="nav-link">Death Rate</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<div class="content-inner">
+			<style type="text/css">
+<!--
+.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+-->
+</style>
+			<h1>Age, Sex, Existing Conditions of COVID-19 Cases and Deaths</h1>
+			<p>There are two sources that provide age, sex, and comorbidity
+				statistics:</p>
+			<div class="spaced">
+				<ul>
+					<br>
+					<li>The <em>Report of the WHO-China Joint Mission </em>published
+						on Feb. 28 by WHO, <sup>[<a href="#ref-2">2</a>]
+					</sup> which is based on <strong>55,924 laboratory confirmed
+							cases</strong>. The report notes that "<em>The Joint Mission
+							acknowledges the known <strong>challenges and biases of
+								reporting crude CFR early in an epidem</strong>
+					</em>ic" (see also our discussion on: <a
+						href="/coronavirus/coronavirus-death-rate/#correct">How to
+							calculate the mortality rate during an outbreak</a>)
+					</li>
+					<li>A paper by the Chinese CCDC released on Feb. 17, which is
+						based on<strong> 72,314</strong> <strong>confirmed,
+							suspected, and asymptomatic cases</strong> of COVID-19 in China as of Feb.
+						11, and was published in the Chinese Journal of Epidemiology <sup>[<a
+							href="#ref-1">1</a>]
+					</sup>
+					</li>
+				</ul>
+			</div>
+			<p>
+				We will list data from both, labeling them as "<strong>confirmed</strong>
+				<strong>cases</strong>" and "<strong>all cases</strong>"
+				respectively in the tables.
+			</p>
+			<h2>Age of Coronavirus Deaths</h2>
+			<h4>COVID-19 Fatality Rate by AGE:</h4>
+			<p>
+				*<strong>Death Rat</strong>e = (number of deaths / number of cases)
+				= <strong>probability of dying if infected by the virus</strong>
+				(%). This probability differs depending on the age group. The
+				percentages shown below <span class="style1"> do not have to
+					add up to 100%</span>, as they<strong> do NOT represent share of
+					deaths by age</strong> group. Rather, it represents, for a person in a given
+				age group, the <strong>risk of dying</strong> if infected with
+				COVID-19.
+			</p>
+			<div class="table-responsive" style="max-width: 400px">
+				<table
+					class="table table-hover table-bordered table-condensed table-list">
+					<tbody>
+						<tr bgcolor="#FCF8F8" class="scrollable bordered">
+							<td height="33"><div align="left">AGE</div></td>
+							<td>DEATH RATE<br> confirmed cases <br></td>
+							<td>DEATH RATE<br> all cases
+							</td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td width="244"><div align="left">
+									<strong>80+ years old </strong>
+								</div></td>
+							<td width="125"><div align="right">
+									<strong>21.9%</strong>
+								</div></td>
+							<td width="125"><div align="right">
+									<strong>14.8%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong>70-79 years old </strong>
+								</div></td>
+							<td><div align="right"></div></td>
+							<td><div align="right">
+									<strong>8.0%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong>60-69 years old </strong>
+								</div></td>
+							<td><div align="right"></div></td>
+							<td><div align="right">
+									<strong>3.6%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong>50-59 years old </strong>
+								</div></td>
+							<td><div align="right"></div></td>
+							<td><div align="right">
+									<strong>1.3%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong>40-49 years old </strong>
+								</div></td>
+							<td><div align="right"></div></td>
+							<td><div align="right">
+									<strong>0.4%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong>30-39 years old </strong>
+								</div></td>
+							<td><div align="right"></div></td>
+							<td><div align="right">
+									<strong>0.2%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong>20-29 years old </strong>
+								</div></td>
+							<td><div align="right"></div></td>
+							<td><div align="right">
+									<strong>0.2%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong>10-19 years old </strong>
+								</div></td>
+							<td><div align="right"></div></td>
+							<td><div align="right">
+									<strong>0.2%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><strong>0-9 years old </strong></td>
+							<td><div align="right"></div></td>
+							<td><div align="right">
+									<strong>no fatalities </strong>
+								</div></td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+			</div>
+			<p>
+				*<strong>Death Rat</strong>e = (number of deaths / number of cases)
+				= <strong>probability of dying if infected by the virus</strong>
+				(%). <span class="table-responsive">The percentages <span
+					class="style1"> do not have to add up to 100%</span>, as they<strong>
+						do NOT represent share of deaths by age</strong> group.
+				</span>
+			</p>
+			<p>
+				<span class="story-body__list-item">In general, relatively
+					few cases are seen among children.</span>
+			</p>
+			<h2>Sex ratio</h2>
+			<h4>COVID-19 Fatality Rate by SEX:</h4>
+			<p>
+				*<strong>Death Rate</strong> = (number of deaths / number of cases)
+				= <strong>probability of dying if infected by the virus</strong>
+				(%). This probability differs depending on sex. When reading these
+				numbers, it must be taken into account that <strong>smoking
+				</strong>in China is much more prevalent among males. Smoking increases the
+				risks of respiratory complications.
+			</p>
+			<div class="table-responsive" style="max-width: 400px">
+				<table
+					class="table table-hover table-bordered table-condensed table-list">
+					<tbody>
+						<tr bgcolor="#FCF8F8" class="scrollable bordered">
+							<td height="33"><div align="left">SEX</div></td>
+							<td>DEATH RATE<br> confirmed cases <br></td>
+							<td>DEATH RATE<br> all cases
+							</td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td width="209"><div align="left">
+									<strong>Male</strong>
+								</div></td>
+							<td width="151"><div align="right">
+									<strong>4.7%</strong>
+								</div></td>
+							<td width="142"><div align="right">
+									<strong>2.8%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong>Female</strong>
+								</div></td>
+							<td><div align="right">
+									<strong>2.8%</strong>
+								</div></td>
+							<td><div align="right">
+									<strong>1.7%</strong>
+								</div></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p>
+				*<strong>Death Rat</strong>e = (number of deaths / number of cases)
+				= <strong>probability of dying if infected by the virus</strong>
+				(%). The percentages <span class="style1"> do not have to add
+					up to 100%</span>, as they<strong> do NOT represent share of
+					deaths by sex. </strong>
+			</p>
+			<h2 id="pre-existing-conditions">Pre-existing medical conditions
+				(comorbidities)</h2>
+			<p>Patients who reported no pre-existing ("comorbid") medical
+				conditions had a case fatality rate of 0.9%. Pre-existing illnesses
+				that put patients at higher risk of dying from a COVID-19 infection
+				are:</p>
+			<h4>COVID-19 Fatality Rate by COMORBIDITY:</h4>
+			<p>
+				*<strong>Death Rat</strong>e = (number of deaths / number of cases)
+				= <strong>probability of dying if infected by the virus</strong>
+				(%). This probability differs depending on pre-existing condition.
+				The percentage shown below does <strong>NOT represent in
+					any way the share of deaths by pre-existing condition</strong>. Rather, it
+				represents, for a patient with a given pre-existing condition, the <strong>risk
+					of dying</strong> if infected by COVID-19.
+			</p>
+			<div class="table-responsive" style="max-width: 500px">
+				<table
+					class="table table-hover table-bordered table-condensed table-list">
+					<tbody>
+						<tr bgcolor="#FCF8F8" class="scrollable bordered">
+							<td height="33"><div align="left">PRE-EXISTING
+									CONDITION</div></td>
+							<td>DEATH RATE<br> confirmed cases <br></td>
+							<td>DEATH RATE<br> all cases
+							</td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td width="252"><div align="left">
+									<strong><span class="story-body__list-item">Cardiovascular
+											disease</span></strong>
+								</div></td>
+							<td width="141"><div align="right">
+									<strong>13.2%</strong>
+								</div></td>
+							<td width="122"><div align="right">
+									<strong>10.5%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong><span class="story-body__list-item">Diabetes</span></strong>
+								</div></td>
+							<td><div align="right">
+									<strong>9.2%</strong>
+								</div></td>
+							<td><div align="right">
+									<strong>7.3%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<span class="story-body__list-item"><strong>Chronic
+											respiratory disease</strong></span>
+								</div></td>
+							<td><div align="right">
+									<strong>8.0%</strong>
+								</div></td>
+							<td><div align="right">
+									<strong>6.3%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong><span class="story-body__list-item">Hypertension</span></strong>
+								</div></td>
+							<td><div align="right">
+									<strong>8.4%</strong>
+								</div></td>
+							<td><div align="right">
+									<strong>6.0%</strong>
+								</div></td>
+						</tr>
+						<tr class="scrollable bordered">
+							<td><div align="left">
+									<strong>Cancer</strong>
+								</div></td>
+							<td><div align="right">
+									<strong>7.6%</strong>
+								</div></td>
+							<td><div align="right">
+									<strong>5.6%</strong>
+								</div></td>
+						</tr>
+						<tr bgcolor="#F9F9F9" class="scrollable bordered">
+							<td><div align="left">
+									<strong><em>no pre-existing conditions </em></strong>
+								</div></td>
+							<td><div align="right"></div></td>
+							<td><div align="right">
+									<strong>0.9%</strong>
+								</div></td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					*<strong>Death Rat</strong>e = (number of deaths / number of cases)
+					= <strong>probability of dying if infected by the virus</strong>
+					(%). The percentages <span class="style1"> do not have to
+						add up to 100%</span>, as they<strong> do NOT represent share of
+						deaths by condition. </strong>
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<footer class="ftco-footer ftco-bg-dark ftco-section">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					 <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+ </p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+	</div>
+
+
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/jquery.easing.1.3.js"></script>
+  <script src="/js/jquery.waypoints.min.js"></script>
+  <script src="/js/jquery.stellar.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/aos.js"></script>
+  <script src="/js/jquery.animateNumber.min.js"></script>
+  <script src="/js/bootstrap-datepicker.js"></script>
+  <script src="/js/jquery.timepicker.min.js"></script>
+  <script src="/js/scrollax.min.js"></script>
+  <script src="/js/google-map.js"></script>
+  <script src="/js/main.js"></script>
+
+</body>
+</html>
