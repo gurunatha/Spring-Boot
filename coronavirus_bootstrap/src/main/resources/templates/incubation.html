@@ -9,25 +9,28 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
 	rel="stylesheet">
+ <link  href="/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    
+    <link  href="/css/owl.carousel.min.css" rel="stylesheet">
+    <link  href=" /css/owl.theme.default.min.css " rel="stylesheet">
+    <link  href=" /css/magnific-popup.css " rel="stylesheet">
 
-<link th:href="@{css/open-iconic-bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{css/animate.css}" rel="stylesheet">
+    <link  href="/css/aos.css " rel="stylesheet">
 
-<link th:href="@{css/owl.carousel.min.css}" rel="stylesheet">
-<link th:href="@{css/owl.theme.default.min.css}" rel="stylesheet">
-<link th:href="@{css/magnific-popup.css}" rel="stylesheet">
+    <link  href=" /css/ionicons.min.css " rel="stylesheet">
 
-<link th:href="@{css/aos.css}" rel="stylesheet">
+    <link  href="/css/bootstrap-datepicker.css " rel="stylesheet">
+    <link href="/css/jquery.timepicker.css " rel="stylesheet">
 
-<link th:href="@{css/ionicons.min.css}" rel="stylesheet">
-
-<link th:href="@{css/bootstrap-datepicker.css}" rel="stylesheet">
-<link th:href="@{css/jquery.timepicker.css}" rel="stylesheet">
-
-
-<link th:href="@{css/flaticon.css}" rel="stylesheet">
-<link th:href="@{css/icomoon.css}" rel="stylesheet">
-<link th:href="@{css/style.css}" rel="stylesheet">
+    
+    <link href="/css/flaticon.css " rel="stylesheet">
+    <link  href="/css/icomoon.css " rel="stylesheet">
+    <link  href="/css/style.css " rel="stylesheet">
+    
+    <script src="/js/jquery.min.js "></script>
+  <script src="/js/bootstrap.min.js "></script>
+  <script src="/js/jquery-migrate-3.0.1.min.js "></script>
 </head>
 <body>
 	<nav
@@ -62,6 +65,8 @@
 							</div>
 							<span class="text">Toll Free No: 1075</span>
 						</div>
+						<button type="button" class="btn btn-primary" data-toggle="modal"
+						data-target="#myModal">Sms Updates</button>
 					</div>
 				</div>
 			</div>
@@ -76,7 +81,7 @@
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
-
+			
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a href="index.html"
@@ -95,31 +100,34 @@
 			</div>
 		</div>
 	</nav>
+	<div class="modal" id="myModal" style="display: none;"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
 
+				<!-- Modal body -->
+				<div class="modal-body">
+					<form class="form-inline" action="/sms" method="get">
+						<span style="color: black">Enter Register Mobile Number</span><br>
+						<br> <span style="color: red">[Contact to admin to
+							Register Your Mobile Number]</span><br>
+						<div class="form-group mx-sm-3 mb-2">
+
+							<input type="number" class="form-control" name="mobile"
+								placeholder="Enter Mobile Number">
+						</div>
+						<button type="submit" class="btn btn-primary mb-2">Submit</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 	<div class="container">
 		<div class="content-inner">
-			<style type="text/css">
-<!--
-.style1 {
-	font-size: 16px;
-	font-style: italic;
-}
 
-blockquote {
-	font-size: 15px;
-	background-color: #F8F8F8;
-	line-height: 1.5em;
-}
-
-.style2 {
-	font-size: 14px
-}
--->
-</style>
-			<div class="label-counter">
-				<a href="/coronavirus/">COVID-19 Coronavirus</a> / Incubation
-			</div>
+		
 			<div id="maincounter-wrap">
 				<h1>Coronavirus Incubation Period:</h1>
 				<div class="maincounter-number">
@@ -338,7 +346,7 @@ blockquote {
 			</div>
 		</div>
 	</div>
-
+	
 
 
 
@@ -348,7 +356,7 @@ blockquote {
 			<div class="row">
 				<div class="col-md-12 text-center">
 
-					 <p>
+				 <p>
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
  </p>
 				</div>
@@ -368,22 +376,19 @@ blockquote {
 	</div>
 
 
-	<script th:src="@{/js/jquery.min.js}"></script>
-	<script th:src="@{/js/jquery-migrate-3.0.1.min.js}"></script>
-	<script th:src="@{/js/popper.min.js}"></script>
-	<script th:src="@{//js/bootstrap.min.js}"></script>
-	<script th:src="@{/js/jquery.easing.1.3.js}"></script>
-	<script th:src="@{/js/jquery.waypoints.min.js}"></script>
-	<script th:src="@{/js/jquery.stellar.min.js}"></script>
-	<script th:src="@{/js/owl.carousel.min.js}"></script>
-	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
-	<script th:src="@{/js/aos.js}"></script>
-	<script th:src="@{/js/jquery.animateNumber.min.js}"></script>
-	<script th:src="@{/js/bootstrap-datepicker.js}"></script>
-	<script th:src="@{/js/jquery.timepicker.min.js}"></script>
-	<script th:src="@{/js/scrollax.min.js}"></script>
-	<script th:src="@{/js/google-map.js}"></script>
-	<script th:src="@{/js/main.js}"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/jquery.easing.1.3.js"></script>
+  <script src="/js/jquery.waypoints.min.js"></script>
+  <script src="/js/jquery.stellar.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/aos.js"></script>
+  <script src="/js/jquery.animateNumber.min.js"></script>
+  <script src="/js/bootstrap-datepicker.js"></script>
+  <script src="/js/jquery.timepicker.min.js"></script>
+  <script src="/js/scrollax.min.js"></script>
+  <script src="/js/google-map.js"></script>
+  <script src="/js/main.js"></script>
 
 </body>
 </html>

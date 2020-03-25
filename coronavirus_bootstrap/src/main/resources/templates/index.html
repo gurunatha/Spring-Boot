@@ -67,6 +67,8 @@
 							</div>
 							<span class="text">Toll Free No: 1075</span>
 						</div>
+						<button type="button" class="btn btn-primary" data-toggle="modal"
+						data-target="#myModal">Sms Updates</button>
 					</div>
 				</div>
 			</div>
@@ -97,11 +99,35 @@
 					<li class="nav-item"><a href="incubation" class="nav-link">IncubationPeriod</a></li>
 					<li class="nav-item"><a href="deathrate" class="nav-link">Death
 							Rate</a></li>
+				
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- END nav -->
+	<div class="modal" id="myModal" style="display: none;"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<form class="form-inline" action="/sms" method="get">
+						<span style="color: black">Enter Register Mobile Number</span><br>
+						<br> <span style="color: red">[Contact to admin to
+							Register Your Mobile Number]</span><br>
+						<div class="form-group mx-sm-3 mb-2">
+
+							<input type="number" class="form-control" name="mobile"
+								placeholder="Enter Mobile Number">
+						</div>
+						<button type="submit" class="btn btn-primary mb-2">Submit</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
 	<div class="container">
 		<div id="carouselExampleControls" class="carousel slide"
 			data-ride="carousel">
@@ -241,24 +267,26 @@
 				</div>
 			</div>
 		</section>
-		
-			<div class="fixed"
-				style="position: sticky; width: 100%; bottom: -11px;">
-				<div class="container" th:if="${date!=null}">
-					<div class="row">
-						<div class="alert alert-danger alert-dismissible" role="alert">
 
-							<marquee>
-								<p style="font-family: Impact; font-size: 18pt">Total number
-									of confirmed cases so far in the country as on 
-									<span th:text="${date}"></span>including foreign nationals = <span th:text="${numbers}"></span></p>
-							</marquee>
-						</div>
+		<div class="fixed"
+			style="position: sticky; width: 100%; bottom: -11px;">
+			<div class="container" th:if="${date!=null}">
+				<div class="row">
+					<div class="alert alert-danger alert-dismissible" role="alert">
+
+						<marquee>
+							<p style="font-family: Impact; font-size: 18pt">
+								Total number of confirmed cases so far in the country as on <span
+									th:text="${date}"></span>including foreign nationals = <span
+									th:text="${numbers}"></span>
+							</p>
+						</marquee>
 					</div>
 				</div>
 			</div>
 		</div>
-	
+	</div>
+
 
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
 		<div class="container">

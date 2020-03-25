@@ -27,7 +27,7 @@ public class CoronavirusSmsService {
 	private static String VIRUS_DATA_INDIA_RECOVERED_URL = "https://raw.githubusercontent.com/gurunatha/coronavirus/master/coronavirus_india_recover.csv";
 	
 	private final static String ACCOUNT_ID = "AC799eed7fa48bd9e63a85a8345333f814";
-	private final static String AUTH_TOKEN = "1598851e27ec73243a91a856832dee90";
+	private final static String AUTH_TOKEN = "0e32a2872ee3fb672b8210ecb052629b";
 	
 	
 	public String sendSmsCoronavirusData(String fromMobileNumber) throws MalformedURLException, ProtocolException, IOException {

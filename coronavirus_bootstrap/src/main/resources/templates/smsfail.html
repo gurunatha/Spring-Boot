@@ -9,7 +9,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
 	rel="stylesheet">
-
  <link  href="/css/open-iconic-bootstrap.min.css" rel="stylesheet">
     <link href="/css/animate.css" rel="stylesheet">
     
@@ -32,39 +31,6 @@
     <script src="/js/jquery.min.js "></script>
   <script src="/js/bootstrap.min.js "></script>
   <script src="/js/jquery-migrate-3.0.1.min.js "></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-<script th:inline="javascript">
-    angular.module('myApp', []).controller('namesCtrl',function($scope,$http,$filter) {
-    	  
-    	$scope.countries = [];
-    	$scope.totalReportedCases="";
-    	$scope.totalNewCases="";
-    	
-    	$scope.search=function(){
-    	$scope.result = $filter('filter')($scope.countries, $scope.test).length+' Results';
-    	}
-    	/*[CDATA[*/
-    	//	var obj = /*[[${locationStats}]]*/"Test";
-    		var obj = [[${locationStats}]];
-    	/*]]*/
-    	
-    	$scope.countries=obj;
-    	$scope.result=$scope.countries.length+' Results';
-    	  $http({
-              method: 'GET',
-              url: 'http://localhost:8082/'
-          }).then(function (success){
-        	console.log(success.data)
-      //    $scope.countries =success.data.locationStats;
-       // 	$scope.totalReportedCases=success.data.totalReportedCases;
-       // 	$scope.totalNewCases=success.data.totalNewCases;
-          },function (error){
-        	  console.log(error.statusText);
-          });
-    	  
-    	});
-    </script>
 </head>
 <body ng-app="myApp" ng-controller="namesCtrl">
 	<nav
@@ -133,7 +99,7 @@
 			</div>
 		</div>
 	</nav>
-		<div class="modal" id="myModal" style="display: none;"
+	<div class="modal" id="myModal" style="display: none;"
 		aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -156,49 +122,9 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="container">
-
-<div class="jumbotron">
-    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
-    <p class="lead">Total Death cases reported as of today</p>
-    <hr class="my-4">
-     <p>
-        <span>Total Countries affected so far :</span>
-        <span th:text="${totalcountries}"></span>
-    </p>
-    
-<marquee width="100%" direction="left" height="2%" >
-<font color="red">This site won't work between  <span th:text="${start}"></span> to <span th:text="${end}"></span> Hours </font>
-</marquee>
-</div>
-
-<div class="form-group mb-4">
-            <input id="country" type="text" style="width:80%"placeholder="Enter Country Name..." ng-model="test" class="form-control-underlined border-success" ng-change="search()">
-         <input class="form-control-underlined border-success" style="width:15%"ng-value="result" readonly>  
-
-    <table class="table">
-        <tr>
-            <th>State</th>
-            <th>Country</th>
-            <th>Total Death cases reported</th>
-           
-        </tr>
-       
-        <tr ng-repeat="x in countries | filter:test">
-        	<td>{{x.state}}</td>
-        	<td>{{x.country}}</td>
-        	<td>{{x.death}}</td>
-        </tr>
-    </table>
-    
-   
-  
-</div>
-</div>
-
-		</div>
-
+		<h1>Sms Sent failed</h1>
+	</div>
 
 
 		<footer class="ftco-footer ftco-bg-dark ftco-section">
