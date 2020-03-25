@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Coronavirus Tracking Application</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+ <link  href="/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    
+    <link  href="/css/owl.carousel.min.css" rel="stylesheet">
+    <link  href=" /css/owl.theme.default.min.css " rel="stylesheet">
+    <link  href=" /css/magnific-popup.css " rel="stylesheet">
+
+    <link  href="/css/aos.css " rel="stylesheet">
+
+    <link  href=" /css/ionicons.min.css " rel="stylesheet">
+
+    <link  href="/css/bootstrap-datepicker.css " rel="stylesheet">
+    <link href="/css/jquery.timepicker.css " rel="stylesheet">
+
+    
+    <link href="/css/flaticon.css " rel="stylesheet">
+    <link  href="/css/icomoon.css " rel="stylesheet">
+    <link  href="/css/style.css " rel="stylesheet">
+    
+    <script src="/js/jquery.min.js "></script>
+  <script src="/js/bootstrap.min.js "></script>
+  <script src="/js/jquery-migrate-3.0.1.min.js "></script>
+</head>
+<body ng-app="myApp" ng-controller="namesCtrl">
+	<nav
+		class="navbar py-4 navbar-expand-lg ftco_navbar navbar-light bg-light flex-row">
+		<div class="container">
+			<div
+				class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
+				<div class="col-lg-2 pr-4 align-items-center">
+					<a class="navbar-brand" href="index.html"><span>coronavirus</span></a>
+				</div>
+				<div class="col-lg-10 d-none d-md-block">
+					<div class="row d-flex">
+
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-paper-plane"></span>
+							</div>
+							<span class="text">Email: ncov2019@gov.in</span>
+						</div>
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-phone2"></span>
+							</div>
+							<span class="text">The Helpline Number: +91-11-23978046</span>
+						</div>
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-phone2"></span>
+							</div>
+							<span class="text">Toll Free No: 1075</span>
+						</div>
+						<button type="button" class="btn btn-primary" data-toggle="modal"
+						data-target="#myModal">Sms Updates</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light"
+		id="ftco-navbar">
+		<div class="container d-flex align-items-center">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+			
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a href="index.html"
+						class="nav-link pl-0">Home</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+					<li class="nav-item"><a href="positive" class="nav-link">Positive</a></li>
+	          <li class="nav-item"><a href="recover" class="nav-link">Recovered</a></li>
+	          <li class="nav-item"><a href="death" class="nav-link">Death</a></li>
+	            <li class="nav-item"><a href="helpline" class="nav-link">HelpLine Numbers</a></li>
+	            <li class="nav-item"><a href="symptoms" class="nav-link">Symptoms</a></li>
+	          <li class="nav-item"><a href="incubation" class="nav-link">IncubationPeriod</a></li>
+	            <li class="nav-item"><a href="deathrate" class="nav-link">Death Rate</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="modal" id="myModal" style="display: none;"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<form class="form-inline" action="/sms" method="get">
+						<span style="color: black">Enter Register Mobile Number</span><br>
+						<br> <span style="color: red">[Contact to admin to
+							Register Your Mobile Number]</span><br>
+						<div class="form-group mx-sm-3 mb-2">
+
+							<input type="number" class="form-control" name="mobile"
+								placeholder="Enter Mobile Number">
+						</div>
+						<button type="submit" class="btn btn-primary mb-2">Submit</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="error-template">
+                <h1>
+                    :) Oops!</h1>
+                <h2>
+                    Sms Services Temporarily down for maintenance</h2>
+                <h1>
+                    We’ll be back soon!</h1>
+                <div>
+                    <p>
+                        Sorry for the inconvenience but we’re performing some maintenance at the moment.
+                        we’ll be back online shortly!</p>
+                    <p>
+                        — The Team</p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-md-6">
+            <svg class="svg-box" width="380px" height="500px" viewbox="0 0 837 1045" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                        <path d="M353,9 L626.664028,170 L626.664028,487 L353,642 L79.3359724,487 L79.3359724,170 L353,9 Z" id="Polygon-1" stroke="#3bafda" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                        <path d="M78.5,529 L147,569.186414 L147,648.311216 L78.5,687 L10,648.311216 L10,569.186414 L78.5,529 Z" id="Polygon-2" stroke="#7266ba" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                        <path d="M773,186 L827,217.538705 L827,279.636651 L773,310 L719,279.636651 L719,217.538705 L773,186 Z" id="Polygon-3" stroke="#f76397" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                        <path d="M639,529 L773,607.846761 L773,763.091627 L639,839 L505,763.091627 L505,607.846761 L639,529 Z" id="Polygon-4" stroke="#00b19d" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                        <path d="M281,801 L383,861.025276 L383,979.21169 L281,1037 L179,979.21169 L179,861.025276 L281,801 Z" id="Polygon-5" stroke="#ffaa00" stroke-width="6" sketch:type="MSShapeGroup"></path>
+                    </g>
+                </svg>
+        </div>
+    </div>
+</div>
+	
+
+
+		<footer class="ftco-footer ftco-bg-dark ftco-section">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-12 text-center">
+
+						 <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+ </p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+
+		<!-- loader -->
+		<div id="ftco-loader" class="show fullscreen">
+			<svg class="circular" width="48px" height="48px">
+				<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+					stroke-width="4" stroke="#eeeeee" />
+				<circle class="path" cx="24" cy="24" r="22" fill="none"
+					stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+		</div>
+
+
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/jquery.easing.1.3.js"></script>
+  <script src="/js/jquery.waypoints.min.js"></script>
+  <script src="/js/jquery.stellar.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/aos.js"></script>
+  <script src="/js/jquery.animateNumber.min.js"></script>
+  <script src="/js/bootstrap-datepicker.js"></script>
+  <script src="/js/jquery.timepicker.min.js"></script>
+  <script src="/js/scrollax.min.js"></script>
+  <script src="/js/google-map.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
