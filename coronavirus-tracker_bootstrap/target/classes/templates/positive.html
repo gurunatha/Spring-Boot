@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html >
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	
+	<link href="/css/main.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" media="all"
+      href="css/main.css" th:href="@{/css/main.css}" />
+	<script th:inline="javascript">
+    angular.module('myApp', []).controller('namesCtrl',function($scope,$http,$filter) {
+    	  
+    	$scope.countries = [];
+    	$scope.totalReportedCases="";
+    	$scope.totalNewCases="";
+    	
+    	$scope.search=function(){
+    	$scope.result = $filter('filter')($scope.countries, $scope.test).length+' Results';
+    	}
+    	/*[CDATA[*/
+    	//	var obj = /*[[${locationStats}]]*/"Test";
+    		var obj = [[${locationStats}]];
+    	/*]]*/
+    	
+    	$scope.countries=obj;
+    	$scope.result=$scope.countries.length+' Results';
+    	  $http({
+              method: 'GET',
+              url: 'http://localhost:8082/'
+          }).then(function (success){
+        	console.log(success.data)
+      //    $scope.countries =success.data.locationStats;
+       // 	$scope.totalReportedCases=success.data.totalReportedCases;
+       // 	$scope.totalNewCases=success.data.totalNewCases;
+          },function (error){
+        	  console.log(error.statusText);
+          });
+    	  
+    	});
+    </script>
+   <style th:inline="text">
+      .btn {
+  background-color: #00b300;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.btn:hover {opacity: 1}
+</style>
+    
+</head>
+
+<body ng-app="myApp" ng-controller="namesCtrl">
+
+<div class="container">
+<div style="text-align: center">
+<a th:href="@{/}"><button class="btn">Home Page</button></a>
+<a th:href="@{/recover}"><button class="btn">Recover Cases</button></a>
+<a th:href="@{/death}"><button class="btn">Death Cases</button></a>
+</div>
+<h1>Coronavirus Tracker Application</h1>
+<p>This application lists the current number of cases reported across the globe</p>
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+    <p class="lead">Total cases reported as of today</p>
+    <hr class="my-4">
+     <p>
+        <span>Total Countries affected so far :</span>
+        <span th:text="${totalcountries}"></span>
+    </p>
+     <hr class="my-4">
+    <p>
+        <span>New cases reported since previous day:</span>
+        <span th:text="${totalNewCases}"></span>
+    </p>
+     <hr class="my-4">
+<marquee width="100%" direction="left" height="2%" >
+<font color="red">This site won't work between  <span th:text="${start}"></span> to <span th:text="${end}"></span> Hours </font>
+</marquee>
+</div>
+
+<div class="form-group mb-4">
+            <input id="country" type="text" style="width:80%"placeholder="Enter Country Name..." ng-model="test" class="form-control-underlined border-success" ng-change="search()">
+         <input class="form-control-underlined border-success" style="width:15%"ng-value="result" readonly>  
+
+    <table class="table">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total cases reported</th>
+            <th>Changes since last day</th>
+        </tr>
+       
+        <tr ng-repeat="x in countries | filter:test">
+        	<td>{{x.state}}</td>
+        	<td>{{x.country}}</td>
+        	<td>{{x.latestTotalCases}}</td>
+        	<td>{{x.diffFromPrevDay}}</td>
+        
+        </tr>
+    </table>
+    
+   
+  
+</div>
+</body>
+
+</html>

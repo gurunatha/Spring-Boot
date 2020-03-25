@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<title>Coronavirus Tracker Application</title>
+
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700,900"
+	rel="stylesheet">
+
+<style type="text/css">
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+#notfound {
+	position: relative;
+	height: 100vh;
+	background: #030005;
+}
+
+#notfound .notfound {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.notfound {
+	max-width: 767px;
+	width: 100%;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.notfound .notfound-404 {
+	position: relative;
+	height: 180px;
+	margin-bottom: 20px;
+	z-index: -1;
+}
+
+.notfound .notfound-404 h1 {
+	font-family: 'Montserrat', sans-serif;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-size: 224px;
+	font-weight: 900;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: -12px;
+	color: #030005;
+	text-transform: uppercase;
+	text-shadow: -1px -1px 0px #8400ff, 1px 1px 0px #ff005a;
+	letter-spacing: -20px;
+}
+
+.notfound .notfound-404 h2 {
+	font-family: 'Montserrat', sans-serif;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 110px;
+	font-size: 42px;
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+	text-shadow: 0px 2px 0px #8400ff;
+	letter-spacing: 13px;
+	margin: 0;
+}
+
+.notfound a {
+	font-family: 'Montserrat', sans-serif;
+	display: inline-block;
+	text-transform: uppercase;
+	color: #ff005a;
+	text-decoration: none;
+	border: 2px solid;
+	background: transparent;
+	padding: 10px 40px;
+	font-size: 14px;
+	font-weight: 700;
+	-webkit-transition: 0.2s all;
+	transition: 0.2s all;
+}
+
+.notfound a:hover {
+	color: #8400ff;
+}
+
+@media only screen and (max-width: 767px) {
+	.notfound .notfound-404 h2 {
+		font-size: 24px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.notfound .notfound-404 h1 {
+		font-size: 182px;
+	}
+}
+</style>
+
+</head>
+
+<body>
+<div class="container">
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal body -->
+        <div class="modal-body">
+         <form class="form-inline" action="#" th:action="@{/sms}" method="get">
+				<span style="color: black">Enter Register Mobile Number</span><br></br>
+					<span style="color: red">[Contact to admin to Register Your Mobile Number]</span><br>
+					<div class="form-group mx-sm-3 mb-2">
+					
+					<input type="number" class="form-control"
+							name="mobile" placeholder="Enter Mobile Number">
+					</div>
+					<button type="submit" class="btn btn-primary mb-2">Submit</button>
+				</form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+	<div id="notfound">
+		 <h1 style="color: white; text-align: center">Coronavirus Tracker
+			Application</h1>
+		<div class="notfound">
+		<br><br><br><br><br><br><br><br>
+		<div>
+				<label style="color:white">Get Total Indian Positive Cases</label><br>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Sms Updates
+  </button>
+			</div>
+			<h3 style="color: white">
+				Total Positive Cases Reported Across Globe :<span
+					style="color: white" th:text="${totalPositiveCases}"></span>
+			</h3>
+			<h3 style="color: white">
+				Total Recovered Cases Reported Across Globe : <span
+					style="color: white" th:text="${totalRecoverCases}"></span>
+			</h3>
+			<h3 style="color: white">
+				Total Death Cases Reported Across Globe :<span style="color: white"
+					th:text="${totalDeathCases}"></span>
+			</h3>
+			<a th:href="@{/positive}">Positive Cases</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a th:href="@{/recover}">Recover Cases</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a th:href="@{/death}">Death Cases</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
+	</div>
+</div>
+</body>
+
+</html>
