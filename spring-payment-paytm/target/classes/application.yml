@@ -1,0 +1,15 @@
+paytm.payment:
+  sandbox:
+    merchantId: RfGwDT08302399186309
+    merchantKey: a8_rtW9v!!DYfvTe
+    channelId: WEB
+    website: WEBSTAGING
+    industryTypeId: Retail
+    paytmUrl:  https://securegw-stage.paytm.in/theia/processTransaction
+    callbackUrl: http://localhost:9090/pgresponse
+    details:
+      MID: ${paytm.payment.sandbox.merchantid}
+      CHANNEL_ID: ${paytm.payment.sandbox.channelid}
+      INDUSTRY_TYPE_ID: ${paytm.payment.sandbox.industrytypeid}
+      WEBSITE: ${paytm.payment.sandbox.website}
+      CALLBACK_URL: ${paytm.payment.sandbox.callbackUrl}
