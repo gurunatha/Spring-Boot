@@ -12,6 +12,10 @@ public class ErrorResponse
         this.message = message;
         this.details = details;
     }
+    
+    public ErrorResponse() {
+		
+	}
  
     //General error message about nature of error
     private String message;

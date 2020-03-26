@@ -55,7 +55,7 @@ public class MaintenanceInterceptor extends HandlerInterceptorAdapter{
 		cal.setTimeZone(istTimeZone);
 		
 		int hour = cal.get(cal.HOUR_OF_DAY);
-		System.out.println("Hour of the day"+hour);
+	//	System.out.println("Hour of the day"+hour);
 		if (hour >= maintenanceStartTime && hour <= maintenanceEndTime) {
 	//		System.out.println("Maintance :"+maintenanceStartTime+" End :"+maintenanceEndTime);
 			//maintenance time, send to maintenance page

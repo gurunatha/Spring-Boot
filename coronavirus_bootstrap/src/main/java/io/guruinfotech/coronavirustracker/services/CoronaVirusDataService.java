@@ -35,10 +35,13 @@ public class CoronaVirusDataService {
 	private CoronavirusSmsService coronavirusSmsService;
 
 	private static String VIRUS_DATA_INDIA_URL = "https://raw.githubusercontent.com/gurunatha/coronavirus/master/coronavirus_india.csv";
-
 	private static String VIRUS_DATA_INDIA_RECOVERED_URL = "https://raw.githubusercontent.com/gurunatha/coronavirus/master/coronavirus_india_recover.csv";
-	
 	private static String INDIA_HELPLINE_NUMBERS ="https://raw.githubusercontent.com/gurunatha/coronavirus/master/coronavirus_helpline.csv";
+
+	public static String CONFIRMED_GLOBAL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
+	public static String DEATH_GLOBAL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv";
+	public static String VIRUS_RECOVERED_DATA = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv";
+
 	private List<LocationStats> allStats = new ArrayList<>();
 	private Set<String> affectedCountries = new HashSet<>();
 	private Set<String> recoverCountries = new HashSet<>();
@@ -46,6 +49,20 @@ public class CoronaVirusDataService {
 	private int totalPositiveCases;
 	private int totalRecoverCases;
 	private int totalDeathCases;
+	
+	
+
+	public static void setCONFIRMED_GLOBAL(String cONFIRMED_GLOBAL) {
+		CONFIRMED_GLOBAL = cONFIRMED_GLOBAL;
+	}
+
+	public static void setDEATH_GLOBAL(String dEATH_GLOBAL) {
+		DEATH_GLOBAL = dEATH_GLOBAL;
+	}
+
+	public static void setVIRUS_RECOVERED_DATA(String vIRUS_RECOVERED_DATA) {
+		VIRUS_RECOVERED_DATA = vIRUS_RECOVERED_DATA;
+	}
 
 	public int getTotalPositiveCases() {
 		return totalPositiveCases;
@@ -81,13 +98,15 @@ public class CoronaVirusDataService {
 
 		Set<LocationStats> newStats = new HashSet<>();
 
-		StringReader csvBodyReader = getRawDate(HomeController.CONFIRMED_GLOBAL);
+		StringReader csvBodyReader = getRawDate(CONFIRMED_GLOBAL);
+		System.out.println(csvBodyReader.toString());
 		Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
 		for (CSVRecord record : records) {
+			System.out.println("record :"+record);
 			int latestCases = 0;
 			int prevDayCases = 0;
 			LocationStats locationStat = new LocationStats();
-			locationStat.setState(record.get("Province/State"));
+			locationStat.setState(record.get(0));
 			locationStat.setCountry(record.get("Country/Region"));
 			locationStat.setLat(Float.parseFloat(record.get("Lat")));
 			locationStat.setLongt(Float.parseFloat(record.get("Long")));
@@ -185,6 +204,7 @@ public class CoronaVirusDataService {
 			}
 		}
 		httpClient.disconnect();
+		
 		StringReader csvBodyReader = new StringReader(response.toString());
 		return csvBodyReader;
 	}
@@ -193,13 +213,13 @@ public class CoronaVirusDataService {
 	public Set<LocationStatsRecovered> getRecoveredData()
 			throws MalformedURLException, ProtocolException, IOException {
 		Set<LocationStatsRecovered> recoveredDate = new HashSet<LocationStatsRecovered>();
-		StringReader csvBodyReader = getRawDate(HomeController.VIRUS_RECOVERED_DATA);
+		StringReader csvBodyReader = getRawDate(VIRUS_RECOVERED_DATA);
 
 		Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
 
 		for (CSVRecord record : records) {
 			LocationStatsRecovered locationStat = new LocationStatsRecovered();
-			locationStat.setState(record.get("Province/State"));
+			locationStat.setState(record.get(0));
 			locationStat.setCountry(record.get("Country/Region"));
 			locationStat.setLat(Float.parseFloat(record.get("Lat")));
 			locationStat.setLongt(Float.parseFloat(record.get("Long")));
@@ -232,13 +252,13 @@ public class CoronaVirusDataService {
 	@PostConstruct
 	public Set<LocationStatsDeath> getDeathData() throws MalformedURLException, ProtocolException, IOException {
 		Set<LocationStatsDeath> deathData = new HashSet<LocationStatsDeath>();
-		StringReader csvBodyReader = getRawDate(HomeController.DEATH_GLOBAL);
+		StringReader csvBodyReader = getRawDate(DEATH_GLOBAL);
 
 		Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
 		for (CSVRecord record : records) {
 
 			LocationStatsDeath locationStat = new LocationStatsDeath();
-			locationStat.setState(record.get("Province/State"));
+			locationStat.setState(record.get(0));
 			locationStat.setCountry(record.get("Country/Region"));
 			locationStat.setLat(Float.parseFloat(record.get("Lat")));
 			locationStat.setLongt(Float.parseFloat(record.get("Long")));

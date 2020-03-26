@@ -49,25 +49,22 @@ public class HomeController implements ErrorController {
 	private String date;
 	private String numbers;
 	
-	public static String CONFIRMED_GLOBAL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
-	public static String DEATH_GLOBAL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv";
-	public static String VIRUS_RECOVERED_DATA = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv";
 	
 	@GetMapping("/confirmurl**")
 	public String urlUpdate(@RequestParam(name = "url",required = true) String url) {
-		this.CONFIRMED_GLOBAL = url;
+		coronaVirusDataService.setCONFIRMED_GLOBAL(url);
 		return "update";
 	}
 	
 	@GetMapping("/recoverurl**")
 	public String recoverUrl(@RequestParam(name = "url",required = true) String url) {
-		this.VIRUS_RECOVERED_DATA = url;
+		coronaVirusDataService.setVIRUS_RECOVERED_DATA(url);
 		return "update";
 	}
 	
 	@GetMapping("/deathurl**")
 	public String urlDeathUrl(@RequestParam("url") String url) {
-		this.DEATH_GLOBAL = url;
+		coronaVirusDataService.setDEATH_GLOBAL(url);
 		return "update";
 	}
 	
@@ -156,7 +153,8 @@ public class HomeController implements ErrorController {
 
 		return "positive";
 	}
-
+	
+	
 	@RequestMapping(value = "/recover", method = { RequestMethod.GET })
 	public String recoveredData(Model model) throws IOException, InterruptedException {
 		Set<LocationStatsRecovered> allStats = coronaVirusDataService.getRecoveredData();
