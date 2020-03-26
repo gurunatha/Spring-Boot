@@ -34,11 +34,8 @@ public class CoronaVirusDataService {
 	@Autowired
 	private CoronavirusSmsService coronavirusSmsService;
 
-	private static String VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv";
 	private static String VIRUS_DATA_INDIA_URL = "https://raw.githubusercontent.com/gurunatha/coronavirus/master/coronavirus_india.csv";
 
-	private static String VIRUS_RECOVERED_DATA = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv";
-	private static String VIRUS_DEATH_DATA = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv";
 	private static String VIRUS_DATA_INDIA_RECOVERED_URL = "https://raw.githubusercontent.com/gurunatha/coronavirus/master/coronavirus_india_recover.csv";
 	
 	private static String INDIA_HELPLINE_NUMBERS ="https://raw.githubusercontent.com/gurunatha/coronavirus/master/coronavirus_helpline.csv";

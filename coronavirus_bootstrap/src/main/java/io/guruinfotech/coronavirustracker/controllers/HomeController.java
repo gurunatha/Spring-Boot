@@ -51,7 +51,7 @@ public class HomeController implements ErrorController {
 	
 	public static String CONFIRMED_GLOBAL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
 	public static String DEATH_GLOBAL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv";
-	public static String VIRUS_RECOVERED_DATA = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv";
+	public static String VIRUS_RECOVERED_DATA = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv";
 	
 	@GetMapping("/confirmurl**")
 	public String urlUpdate(@RequestParam(name = "url",required = true) String url) {
