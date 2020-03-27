@@ -99,10 +99,10 @@ public class CoronaVirusDataService {
 		Set<LocationStats> newStats = new HashSet<>();
 
 		StringReader csvBodyReader = getRawDate(CONFIRMED_GLOBAL);
-		System.out.println(csvBodyReader.toString());
+		
 		Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
 		for (CSVRecord record : records) {
-			System.out.println("record :"+record);
+			
 			int latestCases = 0;
 			int prevDayCases = 0;
 			LocationStats locationStat = new LocationStats();
